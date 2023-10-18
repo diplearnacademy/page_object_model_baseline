@@ -1,9 +1,14 @@
 package co.dlacademy;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class AirbnbReserve extends  BaseTest{
 
@@ -53,6 +58,36 @@ public class AirbnbReserve extends  BaseTest{
         for (int i = 0; i < numAdult ; i++) {
             driver.findElement(By.xpath("//button[@data-testid='stepper-adults-increase-button']")).click();
         }
+
+        driver.findElement(By.xpath("//button[@data-testid='structured-search-input-search-button']")).click();
+
+       //driver.findElement(By.xpath("(//div[@data-testid='card-container'])[1]")).click();
+
+
+
+        /// cambiar de ventana
+
+        String originalWindow = driver.getWindowHandle();
+
+        // verificar que  no existan mas ventana abiertas
+        Assertions.assertEquals(driver.getWindowHandles().size(),1);
+
+        // seleccionar primer resultado
+        driver.findElement(By.xpath("(//div[@data-testid='card-container'])[1]")).click();
+
+        //esperar que se abra segunda vetanan
+        new WebDriverWait(driver, Duration.ofSeconds(3)).until(ExpectedConditions.numberOfWindowsToBe(2));
+
+        for(String windowHadle: driver.getWindowHandles()){
+            if(!originalWindow.contentEquals(windowHadle)){
+                driver.switchTo().window(windowHadle);
+                break;
+            }
+        }
+
+        driver.close();
+
+
 
 
 
