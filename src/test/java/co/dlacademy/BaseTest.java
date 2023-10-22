@@ -1,5 +1,6 @@
 package co.dlacademy;
 
+import co.dlacademy.drivermager.FileReaderManager;
 import co.dlacademy.drivermager.WebDriverManager;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.WebDriver;
@@ -22,6 +23,7 @@ public class BaseTest {
 
         webDriverManager =  new WebDriverManager();
         driver = webDriverManager.getDriver();
-        driver.get("https://www.airbnb.com.co/");
+        //driver.get("https://www.airbnb.com.co/");
+        driver.get(FileReaderManager.getInstance().getConfigReader().getApplicationUrl());
     }
 }

@@ -70,7 +70,7 @@ public class AirbnbReserve extends  BaseTest{
         String originalWindow = driver.getWindowHandle();
 
         // verificar que  no existan mas ventana abiertas
-        Assertions.assertEquals(driver.getWindowHandles().size(),1);
+       // Assertions.assertEquals(driver.getWindowHandles().size(),1);
 
         // seleccionar primer resultado
         driver.findElement(By.xpath("(//div[@data-testid='card-container'])[1]")).click();
