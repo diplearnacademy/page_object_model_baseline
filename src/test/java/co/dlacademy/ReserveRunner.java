@@ -6,9 +6,9 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        plugin = {"pretty"},
         features = "src/test/resources/features/reserve_airbnb.feature",
-        glue = "co.dlacademy.stepsdefinitions"
+        glue = "co.dlacademy.stepsdefinitions",
+        plugin = {"pretty","com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"}
 )
 public class ReserveRunner {
 }

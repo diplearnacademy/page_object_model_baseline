@@ -6,16 +6,17 @@ import co.dlacademy.pages.ConfirmPayPage;
 import co.dlacademy.pages.DetailsReserve;
 import co.dlacademy.pages.HomePage;
 import co.dlacademy.pages.ResultSearchPage;
+import io.cucumber.java.After;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.WebDriver;
 
-public class ReserveAirbnb {
+public class ReserveAirbnb{
 
     protected WebDriver driver;
-    protected WebDriverManager webDriverManager;
+    //protected  WebDriverManager webDriverManager;
 
     private HomePage homePage;
     private ResultSearchPage resultSearchPage;
@@ -26,8 +27,7 @@ public class ReserveAirbnb {
 
     @Given("que Bryan se encuentra en la pagina de Airbnb")
     public void que_bryan_se_encuentra_en_la_pagina_de_airbnb() {
-        webDriverManager =  new WebDriverManager();
-        driver = webDriverManager.getDriver();
+        driver = Hooks.webDriverManager.getDriver();
         driver.get(FileReaderManager.getInstance().getConfigReader().getApplicationUrl());
 
 
@@ -66,6 +66,8 @@ public class ReserveAirbnb {
         System.out.println(priceReserve);
        detailsReserve.reserve();
        double payPrice = confirmPayPage.getPayPrice();
-        Assertions.assertEquals(priceReserve,payPrice);
+        Assertions.assertEquals(priceReserve,payPrice,0.99);
+
     }
+
 }

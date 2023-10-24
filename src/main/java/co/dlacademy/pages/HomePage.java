@@ -5,6 +5,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class HomePage {
 
@@ -49,7 +53,9 @@ public class HomePage {
     }
 
     public void selectCity(String city) {
+        WebDriverWait wait = new  WebDriverWait(driver, Duration.ofSeconds(3));
         driver.findElement(cityInput).sendKeys(city);
+        wait.until(ExpectedConditions.elementToBeClickable(By.id("bigsearch-query-location-listbox")));
         driver.findElement(cityInput).sendKeys(Keys.ENTER);
     }
 

@@ -29,7 +29,15 @@ dependencies {
     implementation group: 'io.cucumber', name: 'cucumber-core', version: '7.14.0'
 // https://mvnrepository.com/artifact/io.cucumber/cucumber-junit
     testImplementation group: 'io.cucumber', name: 'cucumber-junit', version: '7.14.0'
-    testImplementation("io.qameta.allure:allure-java-commons:2.24.0")
+    //implementation group: 'io.cucumber', name: 'cucumber-picocontainer', version: '7.14.0'
+    // https://mvnrepository.com/artifact/com.aventstack/extentreports
+    implementation group: 'com.aventstack', name: 'extentreports', version: '5.0.8'
+    //implementation group: 'io.cucumber', name: 'gherkin', version: '15.0.2'
+    implementation group: 'io.cucumber', name: 'cucumber-jvm', version: '7.14.0', ext: 'pom'
+    implementation 'tech.grasshopper:extentreports-cucumber7-adapter:1.14.0'
+
+    // This dependency is used by the application.
+    //implementation 'com.google.guava:guava:29.0-jre'
 }
 
 test {
