@@ -1,5 +1,15 @@
 plugins {
     id 'java'
+    id 'io.qameta.allure' version '2.11.2'
+}
+
+allure {
+    adapter.autoconfigure = true
+    version '2.24.0'
+
+    useJUnit5 {
+        version = '2.24.0'
+    }
 }
 
 group 'co.dlacademy'
@@ -14,6 +24,12 @@ dependencies {
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
     implementation 'org.seleniumhq.selenium:selenium-java:4.10.0'
     implementation 'io.cucumber:cucumber-java:7.14.0'
+
+    // https://mvnrepository.com/artifact/io.cucumber/cucumber-core
+    implementation group: 'io.cucumber', name: 'cucumber-core', version: '7.14.0'
+// https://mvnrepository.com/artifact/io.cucumber/cucumber-junit
+    testImplementation group: 'io.cucumber', name: 'cucumber-junit', version: '7.14.0'
+    testImplementation("io.qameta.allure:allure-java-commons:2.24.0")
 }
 
 test {
