@@ -14,6 +14,12 @@ dependencies {
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
     implementation 'org.seleniumhq.selenium:selenium-java:4.10.0'
     implementation 'io.cucumber:cucumber-java:7.14.0'
+    //Librerias para Reportes
+    testImplementation group: 'io.cucumber', name: 'cucumber-junit', version: '7.14.0'
+    implementation group: 'io.cucumber', name: 'cucumber-core', version: '7.14.0'
+    implementation group: 'com.aventstack', name: 'extentreports', version: '5.0.8'
+    implementation group: 'tech.grasshopper', name: 'extentreports-cucumber7-adapter', version: '1.14.0'
+    implementation group: 'io.cucumber', name: 'cucumber-jvm', version: '7.14.0', ext: 'pom'
 }
 
 test {

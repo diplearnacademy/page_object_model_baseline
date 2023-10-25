@@ -15,7 +15,7 @@ import org.openqa.selenium.WebDriver;
 public class ReserveAirbnb {
 
     protected WebDriver driver;
-    protected WebDriverManager webDriverManager;
+    //protected WebDriverManager webDriverManager;
 
     private HomePage homePage;
     private ResultSearchPage resultSearchPage;
@@ -26,8 +26,8 @@ public class ReserveAirbnb {
 
     @Given("que Bryan se encuentra en la pagina de Airbnb")
     public void que_bryan_se_encuentra_en_la_pagina_de_airbnb() {
-        webDriverManager =  new WebDriverManager();
-        driver = webDriverManager.getDriver();
+        driver = Hooks.webDriverManager.getDriver();
+       //driver = webDriverManager.getDriver();
         driver.get(FileReaderManager.getInstance().getConfigReader().getApplicationUrl());
 
 

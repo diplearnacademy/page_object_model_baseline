@@ -1,7 +1,6 @@
 Feature:  reserva de estadia Airbnb
 
 
-
   Scenario: Realizar reserva y ver precio
     Given que Bryan se encuentra en la pagina de Airbnb
     When  busca una estancia en la ciudad de "Santa marta"
@@ -12,4 +11,6 @@ Feature:  reserva de estadia Airbnb
     Then  puede ver el precio correspondiente a la estancia reservada
 
 
-
+  Scenario: Realizar reserva y ver lugar
+    Given que Bryan se encuentra en la pagina de Airbnb
+    When  busca una estancia en la ciudad de "Santa marta"
