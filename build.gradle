@@ -1,15 +1,5 @@
 plugins {
     id 'java'
-    id 'io.qameta.allure' version '2.11.2'
-}
-
-allure {
-    adapter.autoconfigure = true
-    version '2.24.0'
-
-    useJUnit5 {
-        version = '2.24.0'
-    }
 }
 
 group 'co.dlacademy'
@@ -24,20 +14,11 @@ dependencies {
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
     implementation 'org.seleniumhq.selenium:selenium-java:4.10.0'
     implementation 'io.cucumber:cucumber-java:7.14.0'
-
-    // https://mvnrepository.com/artifact/io.cucumber/cucumber-core
     implementation group: 'io.cucumber', name: 'cucumber-core', version: '7.14.0'
-// https://mvnrepository.com/artifact/io.cucumber/cucumber-junit
     testImplementation group: 'io.cucumber', name: 'cucumber-junit', version: '7.14.0'
-    //implementation group: 'io.cucumber', name: 'cucumber-picocontainer', version: '7.14.0'
-    // https://mvnrepository.com/artifact/com.aventstack/extentreports
     implementation group: 'com.aventstack', name: 'extentreports', version: '5.0.8'
-    //implementation group: 'io.cucumber', name: 'gherkin', version: '15.0.2'
     implementation group: 'io.cucumber', name: 'cucumber-jvm', version: '7.14.0', ext: 'pom'
     implementation 'tech.grasshopper:extentreports-cucumber7-adapter:1.14.0'
-
-    // This dependency is used by the application.
-    //implementation 'com.google.guava:guava:29.0-jre'
 }
 
 test {

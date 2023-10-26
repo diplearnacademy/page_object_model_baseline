@@ -6,22 +6,14 @@ import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-
-import java.io.IOException;
 
 public class Hooks {
-
-
     public static WebDriverManager webDriverManager;
-
 
     @Before
     public void initDriver()  {
         webDriverManager =  new WebDriverManager();
     }
-
 
     @After(order = 0)
     public void tearDown(Scenario scenario) {
