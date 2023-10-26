@@ -30,10 +30,6 @@ public class Hooks {
             byte[] sourcePath = ((TakesScreenshot) webDriverManager.getDriver()).getScreenshotAs(OutputType.BYTES);
             scenario.attach(sourcePath, "image/png", screenshotName);
         }
-    }
-
-    @After(order = 1)
-    public void tearDown() {
-        webDriverManager.getDriver().quit();
+        webDriverManager.closeDriver();
     }
 }
