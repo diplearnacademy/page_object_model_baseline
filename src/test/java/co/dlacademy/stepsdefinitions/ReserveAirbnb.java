@@ -11,7 +11,10 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.jupiter.api.Assertions;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 
 public class ReserveAirbnb{
 
@@ -66,8 +69,21 @@ public class ReserveAirbnb{
         System.out.println(priceReserve);
        detailsReserve.reserve();
        double payPrice = confirmPayPage.getPayPrice();
-        Assertions.assertEquals(priceReserve,payPrice,0.99);
+        Assertions.assertEquals(priceReserve,payPrice);
 
     }
 
+    @Given("practica de la nueva pagina")
+    public void practicaDeLaNuevaPagina() throws InterruptedException {
+        //model //div[@class='modal-body']/.//p[@class='product-price']
+        driver = Hooks.webDriverManager.getDriver();
+        driver.get("http://teststore.automationtesting.co.uk/");
+        WebElement producto = driver.findElement(By.xpath("(//div[@class='product-description'])[1]"));
+        Actions acciones = new Actions(driver);
+        acciones.moveToElement(producto).perform();
+        driver.findElement(By.xpath("(//a[@data-link-action='quickview'])[1]")).click();
+        Thread.sleep(10000);
+
+
+    }
 }

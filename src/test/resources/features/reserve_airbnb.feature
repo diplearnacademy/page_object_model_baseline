@@ -15,6 +15,9 @@ Feature:  reserva de estadia Airbnb
     Given que Bryan se encuentra en la pagina de Airbnb
     When  busca una estancia en la ciudad de "Santa marta"
 
+  Scenario: practica
+    Given practica de la nueva pagina
+
 
 
 
