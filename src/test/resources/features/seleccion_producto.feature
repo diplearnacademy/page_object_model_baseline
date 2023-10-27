@@ -9,4 +9,11 @@ Feature: Seleccion de Producto
     When Selecciona un producto
     And Selecciona su <dim>, <color> y <cantidad>
     And El usuario agrega el producto al carrito
-    Then verifica que el producto fue añadido al carrito
+    Then verifica que el producto fue anadido al carrito
+
+  Scenario: Selección de productos
+    Given Que el usuario esta en la pagina principal
+    When Agrega los productos con sus caracteristicas al carrito
+      |producto|caracteristica|cantidad|
+      |        |              |        |
+    Then verifica que los productos fueron agregados al carrito
