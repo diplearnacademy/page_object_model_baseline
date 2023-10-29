@@ -2,6 +2,7 @@
 bin/
 gen/
 out/
+test-output/
 
 # Gradle files
 .gradle
