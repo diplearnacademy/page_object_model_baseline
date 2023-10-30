@@ -9,63 +9,70 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.Wait;
 import utilities.Strings;
 
+import javax.xml.xpath.XPath;
 import java.util.Map;
 
 public class ProductModalPage extends  BasePage{
 
-    By btnContinueShopping = By.xpath("//button[text()='Continue shopping']");
-    By btnAddProduct = By.xpath("//button[@data-button-action='add-to-cart']");
+    @FindBy(xpath = "//button[text()='Continue shopping']")
+    WebElement btnContinueShopping;
 
-    By modalContinueShoping = By.id("blockcart-modal");
+    @FindBy(xpath = "//button[@data-button-action='add-to-cart']")
+    WebElement btnAddProduct;
 
-    By selectSize = By.xpath("//select[@data-product-attribute='1']");
-    By selectDimention = By.xpath("//select[@data-product-attribute='3']");
-    By radioButtonWhite = By.xpath("//input[@class='input-color' and @value='8']");
-    By radioButtonBlack = By.xpath("//input[@class='input-color' and @value='11']");
+    @FindBy(id = "blockcart-modal")
+       WebElement modalContinueShoping;
 
-    By inputamount = By.id("quantity_wanted");
+    @FindBy(xpath = "//select[@data-product-attribute='1']")
+            WebElement selectSize;
+
+    @FindBy(xpath = "//select[@data-product-attribute='3']")
+            WebElement selectDimention;
+
+    @FindBy(xpath = "//input[@class='input-color' and @value='8']")
+            WebElement radioButtonWhite;
+
+    @FindBy(xpath = "//input[@class='input-color' and @value='11']")
+            WebElement radioButtonBlack;
+
+    @FindBy(id = "quantity_wanted")
+    WebElement inputamount;
 
     public ProductModalPage(WebDriver driver) {
         super(driver);
     }
 
     public  void addProductCar(){
-        WebElement btnEleAddProduct = driver.findElement(btnAddProduct);
-        wait.until(ExpectedConditions.elementToBeClickable(btnEleAddProduct));
-        driver.findElement(btnAddProduct).click();
+        wait.until(ExpectedConditions.elementToBeClickable(btnAddProduct));
+        btnAddProduct.click();
 
     }
 
     public  void continueShopping(){
-        wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(modalContinueShoping));
-        WebElement btnElementContinueShoping = driver.findElement(btnContinueShopping);
-        wait.until(ExpectedConditions.elementToBeClickable(btnElementContinueShoping));
-        driver.findElement(btnContinueShopping).click();
+        wait.until(ExpectedConditions.visibilityOfAllElements(modalContinueShoping));
+        wait.until(ExpectedConditions.elementToBeClickable(btnContinueShopping));
+        btnContinueShopping.click();
     }
 
     private void selectColorProduct(String color) throws InterruptedException {
         if(color.equalsIgnoreCase("blanco")){
-            driver.findElement(radioButtonWhite).click();
+            radioButtonWhite.click();
         } else if (color.equalsIgnoreCase("negro")) {
-            driver.findElement(radioButtonBlack).click();
+            radioButtonBlack.click();
         }
     }
 
     private void selectCaracteristic(String caracteristic,String value) throws InterruptedException {
         Select select;
-        WebElement elemenSelect;
-
         switch (caracteristic.toLowerCase()){
             case "talla":
-                elemenSelect = driver.findElement(selectSize);
-                wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(selectSize));
-                select = new Select(elemenSelect);
+                wait.until(ExpectedConditions.visibilityOfAllElements(selectSize));
+                select = new Select(selectSize);
                 select.selectByVisibleText(value);
                 break;
             case "dimension":
-                elemenSelect = driver.findElement(selectDimention);
-                wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(selectDimention));
-                select = new Select(elemenSelect);
+                wait.until(ExpectedConditions.visibilityOfAllElements(selectDimention));
+                select = new Select(selectDimention);
                 select.selectByVisibleText(value);
                 break;
             case "color":
@@ -87,7 +94,7 @@ public class ProductModalPage extends  BasePage{
     }
 
     public void selectAmount(String amount) throws InterruptedException {
-        driver.findElement(inputamount).clear();
-        driver.findElement(inputamount).sendKeys(amount);
+        inputamount.clear();
+        inputamount.sendKeys(amount);
     }
 }
