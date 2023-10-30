@@ -2,12 +2,16 @@ plugins {
     id 'java'
 }
 
+
+
 group 'co.dlacademy'
 version '1.0-SNAPSHOT'
 
 repositories {
     mavenCentral()
 }
+
+
 
 dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
@@ -16,11 +20,10 @@ dependencies {
     implementation 'io.cucumber:cucumber-java:7.14.0'
     implementation group: 'io.cucumber', name: 'cucumber-core', version: '7.14.0'
     testImplementation group: 'io.cucumber', name: 'cucumber-junit', version: '7.14.0'
-    implementation group: 'com.aventstack', name: 'extentreports', version: '5.0.8'
-    implementation group: 'io.cucumber', name: 'cucumber-jvm', version: '7.14.0', ext: 'pom'
-    implementation 'tech.grasshopper:extentreports-cucumber7-adapter:1.14.0'
+    implementation 'io.qameta.allure:allure-cucumber7-jvm:2.24.0'
 }
 
 test {
     useJUnitPlatform()
 }
+

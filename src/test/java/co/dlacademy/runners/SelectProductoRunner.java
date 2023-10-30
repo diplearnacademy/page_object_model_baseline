@@ -8,7 +8,7 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = "src/test/resources/features/seleccion_producto.feature",
         glue = "co.dlacademy.stepsdefinitions",
-        plugin = {"pretty","com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"},
+        plugin = {"pretty","io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm"},
         snippets = CucumberOptions.SnippetType.CAMELCASE
 )
 public class SelectProductoRunner {

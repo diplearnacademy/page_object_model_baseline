@@ -4,6 +4,7 @@ Feature: Seleccion de Producto
   segun su Talla, color y cantidad
   para agregarlo al carrito de compras
 
+  @smoke
   Scenario: Selección correcta
     Given Que el usuario esta en la pagina principal
     When Selecciona un producto
@@ -11,7 +12,7 @@ Feature: Seleccion de Producto
     And El usuario agrega el producto al carrito
     Then verifica que el producto fue anadido al carrito
 
-
+  @regresion
   Scenario: Selección de productos con una sola característica
     Given  Que el usuario esta en la pagina principal
     When Agrega los productos con sus caracteristicas al carrito

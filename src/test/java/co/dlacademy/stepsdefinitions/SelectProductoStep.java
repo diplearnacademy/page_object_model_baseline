@@ -51,7 +51,7 @@ public class SelectProductoStep {
     @Then("verifica que el producto fue anadido al carrito")
     public void verificaQueElProductoFueAnadidoAlCarrito() {
         // Write code here that turns the phrase above into concrete actions
-        System.out.println("test");
+        Assert.assertTrue(false);
     }
 
 
