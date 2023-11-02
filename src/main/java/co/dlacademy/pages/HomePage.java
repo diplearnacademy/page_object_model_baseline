@@ -31,8 +31,9 @@ HomePage extends BasePage{
         WebElement elemento = driver.findElement(firstProduct);
         Actions actions = new Actions(driver);
         actions.moveToElement(elemento).perform();
-        Thread.sleep(3000);
-        driver.findElement(linkFirstProduct).click();
+        WebElement firstEelement = driver.findElement(firstProduct);
+        wait.until(ExpectedConditions.elementToBeClickable(firstEelement));
+        firstEelement.click();
     }
 
 
