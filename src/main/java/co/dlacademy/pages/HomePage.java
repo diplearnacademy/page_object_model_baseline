@@ -33,7 +33,7 @@ public class HomePage extends BasePage{
     public void clickEnLupa() throws InterruptedException {
         Actions actions = new Actions(driver);
         actions.moveToElement(firstProduct).perform();
-        Thread.sleep(3000);
+        wait.until(ExpectedConditions.elementToBeClickable(linkFirstProduct));
         linkFirstProduct.click();
     }
 
