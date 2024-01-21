@@ -31,30 +31,6 @@ public class SelectProductoStep {
         driver.get(FileReaderManager.getInstance().getConfigReader().getApplicationUrl());
     }
 
-    @When("Selecciona un producto")
-    public void seleccionaUnProducto() throws InterruptedException {
-        // Write code here that turns the phrase above into concrete actions
-        homePage = new HomePage(driver);
-        homePage.clickEnLupa();
-
-    }
-    @When("Selecciona su <dim>, <color> y <cantidad>")
-    public void seleccionaSuDimColorYCantidad() {
-        // Write code here that turns the phrase above into concrete actions
-        System.out.println("test");
-    }
-    @When("El usuario agrega el producto al carrito")
-    public void elUsuarioAgregaElProductoAlCarrito() {
-        // Write code here that turns the phrase above into concrete actions
-        System.out.println("test");
-    }
-    @Then("verifica que el producto fue anadido al carrito")
-    public void verificaQueElProductoFueAnadidoAlCarrito() {
-        // Write code here that turns the phrase above into concrete actions
-        System.out.println("test");
-    }
-
-
     @When("Agrega los productos con sus caracteristicas al carrito")
     public void agregaLosProductosConSusCaracteristicasAlCarrito(List<Map<String,String>> products) throws InterruptedException {
         homePage = new HomePage(driver);
