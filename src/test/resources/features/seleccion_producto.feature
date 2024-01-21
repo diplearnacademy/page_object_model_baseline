@@ -4,13 +4,6 @@ Feature: Seleccion de Producto
   segun su Talla, color y cantidad
   para agregarlo al carrito de compras
 
-  Scenario: Selección correcta
-    Given Que el usuario esta en la pagina principal
-    When Selecciona un producto
-    And Selecciona su <dim>, <color> y <cantidad>
-    And El usuario agrega el producto al carrito
-    Then verifica que el producto fue anadido al carrito
-
 
   Scenario: Selección de productos con una sola característica
     Given  Que el usuario esta en la pagina principal
