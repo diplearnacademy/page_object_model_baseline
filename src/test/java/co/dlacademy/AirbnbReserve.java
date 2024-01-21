@@ -27,7 +27,7 @@ public class AirbnbReserve extends  BaseTest{
         selectPlace.sendKeys(Keys.ENTER);
 
         //selecionar fechas inicial
-        WebElement startDate = driver.findElement(By.xpath("//div[@aria-label='Calendario']/.//h2[text()='Diciembre 2023']/ancestor::div[@data-visible]"));
+        WebElement startDate = driver.findElement(By.xpath("//div[@aria-label='Calendario']/.//h2[text()='Febrero 2024']/ancestor::div[@data-visible]"));
         System.out.println(startDate.getAttribute("data-visible"));
 
         while (!startDate.getAttribute("data-visible").equals("true")){
@@ -35,10 +35,10 @@ public class AirbnbReserve extends  BaseTest{
             driver.findElement(By.xpath("//button[@aria-label='Haz clic en la flecha de la derecha para cambiar al mes siguiente.']")).click();
         }
 
-        driver.findElement(By.xpath("//td/div[contains(@data-testid,'15/12')]")).click();
+        driver.findElement(By.xpath("//td/div[contains(@data-testid,'15/02')]")).click();
 
         // fecha final
-        WebElement endDate = driver.findElement(By.xpath("//div[@aria-label='Calendario']/.//h2[text()='Diciembre 2023']/ancestor::div[@data-visible]"));
+        WebElement endDate = driver.findElement(By.xpath("//div[@aria-label='Calendario']/.//h2[text()='Marzo 2024']/ancestor::div[@data-visible]"));
         System.out.println(startDate.getAttribute("data-visible"));
 
         while (!endDate.getAttribute("data-visible").equals("true")){
@@ -46,7 +46,7 @@ public class AirbnbReserve extends  BaseTest{
             driver.findElement(By.xpath("//button[@aria-label='Haz clic en la flecha de la derecha para cambiar al mes siguiente.']")).click();
         }
 
-        driver.findElement(By.xpath("//td/div[contains(@data-testid,'30/12')]")).click();
+        driver.findElement(By.xpath("//td/div[contains(@data-testid,'20/03')]")).click();
 
 
         // selecionar numero personas
@@ -61,16 +61,12 @@ public class AirbnbReserve extends  BaseTest{
 
         driver.findElement(By.xpath("//button[@data-testid='structured-search-input-search-button']")).click();
 
-       //driver.findElement(By.xpath("(//div[@data-testid='card-container'])[1]")).click();
-
-
 
         /// cambiar de ventana
 
         String originalWindow = driver.getWindowHandle();
 
-        // verificar que  no existan mas ventana abiertas
-       // Assertions.assertEquals(driver.getWindowHandles().size(),1);
+
 
         // seleccionar primer resultado
         driver.findElement(By.xpath("(//div[@data-testid='card-container'])[1]")).click();
@@ -86,14 +82,5 @@ public class AirbnbReserve extends  BaseTest{
         }
 
         driver.close();
-
-
-
-
-
-
-
-
-
     }
 }

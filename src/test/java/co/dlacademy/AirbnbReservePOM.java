@@ -11,8 +11,8 @@ public class AirbnbReservePOM  extends  BaseTest{
 
         homePage.opensearch();
         homePage.selectCity("Santa marta");
-        homePage.selectDate("Diciembre 2023","10");
-        homePage.selectDate("Diciembre 2023","20");
+        homePage.selectDate("Marzo 2024","10");
+        homePage.selectDate("Marzo 2024","20");
         homePage.selectNumberGuest(5);
         homePage.searchResult();
     }
